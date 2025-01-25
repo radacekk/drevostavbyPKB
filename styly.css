@@ -1,15 +1,20 @@
-html {
-  height: 100vh; /* Zajištění, že tělo a html mají 100% výšku */
-  margin: 0; /* Zamezení výchozím okrajům */
+html, body {
+  height: 100%; /* Ujistíme se, že oba elementy pokrývají 100% výšky dokumentu */
+  margin: 0; /* Odstraníme výchozí okraje */
+  padding: 0; /* Odstraníme výchozí odsazení */
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background-attachment: fixed; /* Zajistí, že gradient zůstane na místě při scrollování */
+  background-size: cover; /* Zajistí pokrytí celé stránky */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --primary-color: #919ece;
+  --secondary-color: #4e5a8c;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  height: 100%;
-  padding: 0;
   overflow-x: hidden;
-  background-color: #919ece;
 }
 
 .container {
@@ -546,3 +551,4 @@ footer a {
   position: relative;
   font-weight: 700;
 }
+
