@@ -1,15 +1,19 @@
 html, body {
-  height: 100vh; /* Zajištění, že tělo a html mají 100% výšku */
-  margin: 0; /* Zamezení výchozím okrajům */
+  height: 100%; /* Ujistíme se, že oba elementy pokrývají 100% výšky dokumentu */
+  margin: 0; /* Odstraníme výchozí okraje */
+  padding: 0; /* Odstraníme výchozí odsazení */
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background-attachment: fixed; /* Zajistí, že gradient zůstane na místě při scrollování */
+  background-size: cover; /* Zajistí pokrytí celé stránky */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --primary-color: #919ece;
+  --secondary-color: #4e5a8c;
 }
 
 body {
-  background-attachment: fixed;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #919ece;
-  height: 100%; /* Zajištění výšky celého těla */
-  margin: 0;
-  padding: 0;
   overflow-x: hidden;
 }
 
@@ -153,26 +157,24 @@ body {
 /* Základní styly pro navigační panel */
 nav {
   position: absolute;
-  top: 12px;
-  right: 10px;
-  border-radius: 0 0 0 20px;
-  z-index: 2;
+  width: 100%;
+  height: 102px; /* Pevná výška pro lepší vertikální zarovnání */
+  overflow: visible;
+  background-color: #4e5a8c;
+  display: flex;
   justify-content: flex-end; /* Zarovnání navigace doprava */
   align-items: center; /* Vertikální centrování obsahu */
+  padding-right: 20px; /* Přidání odsazení doprava */
+  top: 0;
 }
-
-/* Základní styly pro seznam */
 ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding-right: 10px;
   display: flex;
-  justify-content: center; /* Středové zarovnání */
   gap: 15px;
-  position: relative;
 }
 
-/* Odkazy uvnitř navigace */
 li {
   position: relative;
 }
@@ -180,28 +182,24 @@ li {
 li a {
   text-decoration: none;
   font-weight: 700;
-  color: #ffffff;
+  color: #040e47;
   font-size: 18px;
-  padding: 6px 15px;
+  margin-top: -50px;
+  padding: 12px 15px; /* Zvýšení vertikálního paddingu pro centrování textu */
   border-radius: 5px;
   transition: background-color 0.3s, transform 0.2s;
-  position: relative;
-  z-index: 1;
+  display: block;
+  line-height: 26px; /* Nastavení stejné výšky jako výška odkazu pro vertikální zarovnání */
 }
 
-/* Hover efekt na odkazy */
-li a:hover {
-  transform: scale(1.1); /* Mírné zvětšení při najetí myší */
-}
 
-/* Styl pro čáru */
 .line-container2 {
   position: absolute;
-  bottom: -10px;
+  bottom: 10px;
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #fff;
+  background-color: #040e47;
   border-radius: 2px;
   transition: width 0.3s ease-in-out;
 }
@@ -210,21 +208,11 @@ li:hover .line-container2 {
   width: 100%;
 }
 
-/* Pro větší zařízení */
 @media (min-width: 768px) {
   li a {
-      font-size: 20px;
-      padding: 15px 20px;
+    font-size: 20px;
+    padding: 15px 20px;
   }
-}
-
-
-.hlava {
-  text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #040e47;
-  color: #ffffff;
-  padding: 8px 12px;
 }
 
 .kontakt {
@@ -239,142 +227,155 @@ li:hover .line-container2 {
   border-radius: 10px;
   margin-top: 20px; /* Added spacing between the heading and the map */
 }
-  .logo {
-    position: absolute;
-    height: 50px; /* Nastavte požadovanou výšku */
-    width: auto; /* Automaticky upraví šířku podle výšky */
-    left: 10px; /* Posunutí od levého okraje */
-    top: 10px; /* Posunutí od horního okraje */
-    z-index: 2; 
-    background-color: transparent; /* Přidání transparentního pozadí */
-    padding: 5px; /* Možná budete potřebovat přidat trochu paddingu, aby logo nebylo přilepené na okraj */
-  }
+.logo {
+  position: absolute;
+  height: 50px; /* Nastavte požadovanou výšku */
+  width: auto; /* Automaticky upraví šířku podle výšky */
+  left: 10px; /* Posunutí od levého okraje */
+  top: 10px; /* Posunutí od horního okraje */
+  z-index: 2; 
+  background-color: transparent; /* Přidání transparentního pozadí */
+  padding: 5px; /* Možná budete potřebovat přidat trochu paddingu, aby logo nebylo přilepené na okraj */
+}
   
-  .logo img {
-    max-height: 140%; /* Obrázek se přizpůsobí kontejneru */
-    width: auto; /* Zachová poměr stran */
-    border: none;
-  }
-  .image-gallery {
-    display: flex;
-    justify-content: space-around;
-    margin: 40px 0;
-  }
+.logo img {
+  max-height: 140%; /* Obrázek se přizpůsobí kontejneru */
+  width: auto; /* Zachová poměr stran */
+  border: none;
+}
+.image-gallery {
+  display: flex;
+  justify-content: space-around;
+  margin: 40px 0;
+}
   
-  .image-gallery div {
-    width: 250px; /* Nastav požadovanou velikost čtverce */
-    height: 250px; /* Nastav požadovanou velikost čtverce */
-    overflow: hidden; /* Skryj přetékající část obrázku */
-    position: relative;
+.image-gallery div {
+  width: 250px; /* Nastav požadovanou velikost čtverce */
+  height: 250px; /* Nastav požadovanou velikost čtverce */
+  overflow: hidden; /* Skryj přetékající část obrázku */
+  position: relative;
 }
 
 .image-gallery img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
 }
 
 .image-gallery img:only-child {
-    height: 100%;
-    width: auto;
+  height: 100%;
+  width: auto;
 }
 
 
-  img:hover {
-    cursor:pointer;
-  }
+img:hover {
+  cursor:pointer;
+}
   
-  /* Styl pro modal */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 60px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.9);
-  }
+/* Styl pro modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+}
   
-  .modal-content {
-    margin: auto;
-    display: block;
-    width: 30%;
-    max-width: 900px;
-  }
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 30%;
+  max-width: 900px;
+}
   
-  .close {
-    position: absolute;
-    top: 60px;
-    right: 35px;
-    color: #fff;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-  }
+.close {
+  position: absolute;
+  top: 60px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
   
-  .close:hover,
-  .close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-  }
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
   
-  .central-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgba(4, 14, 71, 0.8); /* Poloprůhledné pozadí */
-    padding: 30px 50px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 2;
-  }
+.central-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgba(4, 14, 71, 0.8); /* Poloprůhledné pozadí */
+  padding: 30px 50px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
   
-  .central-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
+.central-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
   
-  .central-content p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-  }
+.central-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
   
-  .central-content button {
-    background-color: #040e47;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+.central-content button {
+  background-color: #040e47;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
   
-  .central-content button:hover {
-    background-color: #223175;
-  }
-  .text{
-    color: #223175;
-    font-size: 36px;
-    z-index: 1;
-    text-align: center;
-  }
+.central-content button:hover {
+  background-color: #223175;
+}
+.text{
+  color: #223175;
+  font-size: 36px;
+  z-index: 1;
+  text-align: center;
+}
 
+footer a {
+  position: relative;
+  font-weight: 700;
+}
+
+footer {
+  position: relative;
+  width: 100%;
+}
+
+.spacer {
+  height: 100px;
+}
 
   
