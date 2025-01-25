@@ -10,6 +10,7 @@ body {
   height: 100%; /* Zajištění výšky celého těla */
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 
@@ -152,10 +153,12 @@ body {
 /* Základní styly pro navigační panel */
 nav {
   position: absolute;
-  top: 10px;
+  top: 12px;
   right: 10px;
   border-radius: 0 0 0 20px;
   z-index: 2;
+  justify-content: flex-end; /* Zarovnání navigace doprava */
+  align-items: center; /* Vertikální centrování obsahu */
 }
 
 /* Základní styly pro seznam */
@@ -259,17 +262,26 @@ li:hover .line-container2 {
   }
   
   .image-gallery div {
-    flex: 1;
-    text-align: center;
-    margin: 0 20px;
-  }
-  
-  .image-gallery img {
-    width: 60%;
+    width: 250px; /* Nastav požadovanou velikost čtverce */
+    height: 250px; /* Nastav požadovanou velikost čtverce */
+    overflow: hidden; /* Skryj přetékající část obrázku */
+    position: relative;
+}
+
+.image-gallery img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
     height: auto;
-    border: 2px solid #223175;
-    border-radius: 15px;
-  }
+}
+
+.image-gallery img:only-child {
+    height: 100%;
+    width: auto;
+}
+
 
   img:hover {
     cursor:pointer;
