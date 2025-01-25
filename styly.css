@@ -1,5 +1,6 @@
 html {
-  scroll-behavior: smooth;
+  height: 100vh; /* Zajištění, že tělo a html mají 100% výšku */
+  margin: 0; /* Zamezení výchozím okrajům */
 }
 
 body {
@@ -15,8 +16,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100% - 600px); /* Zohlednění marginy, aby se obsah neodsunul mimo viewport */
-  margin: 300px auto; /* Středová pozice obsahu s dostatečnou mezerou nahoře a dole */
+  height: calc(100% - 600px);
+  margin: 300px auto;
   position: relative;
 }
 
@@ -31,10 +32,10 @@ body {
   border: 4px solid transparent;
   font-size: 16px;
   font-weight: 600;
-  background-color: #223175; /* Tmavě modrá pro lepší kontrast */
-  border-radius: 100px;
-  color: #ffffff; /* Zajištění, že text bude bílý a čitelný */
-  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.4); /* Zlepšení stínu pro viditelnost */
+  background-color: #223175;
+  border-radius: 4px;
+  color: #ffffff;
+  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -46,7 +47,7 @@ body {
 
 .animated-button svg {
   width: 24px;
-  fill: #ffffff; /* Změna barvy ikony na bílou */
+  fill: #ffffff;
   z-index: 9;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -68,7 +69,7 @@ body {
   transform: translate(-50%, -50%);
   width: 20px;
   height: 20px;
-  background-color: #223175; /* Bílé pozadí pro kruh */
+  background-color: #223175;
   border-radius: 50%;
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
@@ -80,10 +81,10 @@ body {
 }
 
 .animated-button:hover {
-  box-shadow: 0 0 20px 12px rgba(0, 0, 0, 0.6); /* Zvýšený efekt stínu */
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.6);
   color: #ffffff;
-  border-radius: 12px;
-  background-color: #4e5a8c; /* Světlejší odstín při najetí myší */
+  border-radius: 4px;
+  background-color: #4e5a8c;
 }
 
 .animated-button:hover .arr-1 {
@@ -117,32 +118,32 @@ body {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 4px;
   gap: 4px;
   width: 80px;
   height: 30px;
   padding: 16px 36px;
   font-size: 16px;
   font-weight: 600;
-  background-color: #223175; /* Tmavě modrá */
-  color: #ffffff; /* Bílý text */
+  background-color: #223175;
+  color: #ffffff;
   box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.4);
-  text-decoration: none; /* Odstranění podtržení odkazu */
+  text-decoration: none;
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   position: absolute;
-  left: 200px; /* Umístění na levou stranu */
-  top: 480px; /* Posunutí od horní hrany */
+  left: 200px;
+  top: 480px;
   z-index: 2;
 }
 
 .scroll-button button {
-  all: unset; /* Reset stylů tlačítka */
+  all: unset;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 4px;
-  width: 100%; /* Tlačítko vyplní rodiče */
+  width: 100%;
   height: 100%;
   font-size: inherit;
   font-weight: inherit;
@@ -151,8 +152,8 @@ body {
 }
 
 .scroll-button:hover {
-  box-shadow: 0 0 20px 12px rgba(0, 0, 0, 0.6);
-  background-color: #4e5a8c; /* Světlejší modrá při hoveru */
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.6);
+  background-color: #4e5a8c;
 }
 
 .scroll-button:active {
@@ -160,7 +161,6 @@ body {
   box-shadow: 0 0 0 4px rgb(0, 0, 0);
 }
 
-/* Responzivní styly */
 @media (max-width: 1024px) {
   .scroll-button {
     left: 150px;
@@ -195,23 +195,26 @@ body {
 }
 
 .card-container {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out; 
   display: flex;
-  justify-content: flex-start; /* Zarovná karty doleva */
+  justify-content: flex-start;
   align-items: flex-start;
-  flex-wrap: wrap; /* Umožní zalamování karet na nový řádek, pokud je málo místa */
-  gap: 20px; /* Rozestupy mezi kartami */
+  flex-wrap: wrap;
+  gap: 20px;
   padding: 20px;
-  margin: 0 auto; /* Horizontální zarovnání celého kontejneru */
-  max-width: 1000px; /* Maximální šířka pro karty */
+  margin: 0 auto;
+  max-width: 1000px;
 }
 
 .card {
   background-color: rgba(4, 14, 71, 0.9);
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
   position: relative;
-  top: 700px;
+  top: 500px;
   text-align: left;
   transition: transform 0.3s ease;
   width: calc(45% - 20px);
@@ -239,27 +242,25 @@ body {
   text-overflow: ellipsis;
 }
 
-/* Základní styly pro navigační panel */
 nav {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  border-radius: 0 0 0 20px;
+  width: 100%;
+  height: 102px; /* Pevná výška pro lepší vertikální zarovnání */
   overflow: visible;
+  background-color: #4e5a8c;
+  display: flex;
+  justify-content: flex-end; /* Zarovnání navigace doprava */
+  align-items: center; /* Vertikální centrování obsahu */
+  padding-right: 20px; /* Přidání odsazení doprava */
 }
-
-/* Základní styly pro seznam */
 ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding-right: 10px;
   display: flex;
-  justify-content: center; /* Středové zarovnání */
   gap: 15px;
-  position: relative;
 }
 
-/* Odkazy uvnitř navigace */
 li {
   position: relative;
 }
@@ -267,28 +268,24 @@ li {
 li a {
   text-decoration: none;
   font-weight: 700;
-  color: #223175;
+  color: #040e47;
   font-size: 18px;
-  padding: 6px 15px;
+  margin-top: -50px;
+  padding: 12px 15px; /* Zvýšení vertikálního paddingu pro centrování textu */
   border-radius: 5px;
   transition: background-color 0.3s, transform 0.2s;
-  position: relative;
-  z-index: 1;
+  display: block;
+  line-height: 26px; /* Nastavení stejné výšky jako výška odkazu pro vertikální zarovnání */
 }
 
-/* Hover efekt na odkazy */
-li a:hover {
-  transform: scale(1.1); 
-  }
 
-/* Styl pro čáru */
 .line-container2 {
   position: absolute;
-  bottom: -10px;
+  bottom: 10px;
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #223175;
+  background-color: #040e47;
   border-radius: 2px;
   transition: width 0.3s ease-in-out;
 }
@@ -297,14 +294,12 @@ li:hover .line-container2 {
   width: 100%;
 }
 
-/* Pro větší zařízení */
 @media (min-width: 768px) {
   li a {
-      font-size: 20px;
-      padding: 15px 20px;
+    font-size: 20px;
+    padding: 15px 20px;
   }
 }
-
 
 .hlava {
   position: relative;
@@ -319,7 +314,7 @@ li:hover .line-container2 {
   padding: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 20px;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Černý stín, lehce rozmazaný */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .custom-map {
@@ -327,24 +322,26 @@ li:hover .line-container2 {
   height: 300px;
   border: 0;
   border-radius: 10px;
-  margin-top: 20px; /* Added spacing between the heading and the map */
+  margin-top: 20px;
 }
+
 .logo {
   position: absolute;
-  height: 50px; /* Nastavte požadovanou výšku */
-  width: auto; /* Automaticky upraví šířku podle výšky */
-  left: 24px; /* Posunutí od levého okraje */
-  top: 10px; /* Posunutí od horního okraje */
-  z-index: 2; 
-  background-color: transparent; /* Přidání transparentního pozadí */
-  padding: 5px; /* Možná budete potřebovat přidat trochu paddingu, aby logo nebylo přilepené na okraj */
+  height: 50px;
+  width: auto;
+  left: 24px;
+  top: 10px;
+  z-index: 2;
+  background-color: transparent;
+  padding: 5px;
 }
 
 .logo img {
-  max-height: 140%; /* Obrázek se přizpůsobí kontejneru */
-  width: auto; /* Zachová poměr stran */
+  max-height: 140%;
+  width: auto;
   border: none;
 }
+
 .image-gallery {
   display: flex;
   justify-content: space-around;
@@ -364,7 +361,6 @@ li:hover .line-container2 {
   border-radius: 15px;
 }
 
-/* Styl pro modal */
 .modal {
   display: none;
   position: fixed;
@@ -484,11 +480,6 @@ li:hover .line-container2 {
   }
 }
 
-footer {
-  position: absolute;
-  width: 100%;
-  bottom: -1000px;
-}
 
 .sluzby {
   display: flex;
@@ -551,3 +542,7 @@ footer {
   font-size: 1.5rem !important;
 }
 
+footer a {
+  position: relative;
+  font-weight: 700;
+}
