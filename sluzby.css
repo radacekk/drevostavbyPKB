@@ -1,17 +1,22 @@
 html, body {
-  height: 100vh; /* Zajištění, že tělo a html mají 100% výšku */
-  margin: 0; /* Zamezení výchozím okrajům */
+  height: 100%; /* Ujistíme se, že oba elementy pokrývají 100% výšky dokumentu */
+  margin: 0; /* Odstraníme výchozí okraje */
+  padding: 0; /* Odstraníme výchozí odsazení */
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background-attachment: fixed; /* Zajistí, že gradient zůstane na místě při scrollování */
+  background-size: cover; /* Zajistí pokrytí celé stránky */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --primary-color: #919ece;
+  --secondary-color: #4e5a8c;
 }
 
 body {
-  background-attachment: fixed;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #919ece;
-  height: 100%; /* Zajištění výšky celého těla */
-  margin: 0;
-  padding: 0;
   overflow-x: hidden;
 }
+
 
 
 .container {
@@ -153,24 +158,24 @@ body {
 /* Základní styly pro navigační panel */
 nav {
   position: absolute;
-  top: 12px;
-  right: 10px;
-  border-radius: 0 0 0 20px;
-  z-index: 2;
+  width: 100%;
+  height: 102px; /* Pevná výška pro lepší vertikální zarovnání */
+  overflow: visible;
+  background-color: #4e5a8c;
+  display: flex;
+  justify-content: flex-end; /* Zarovnání navigace doprava */
+  align-items: center; /* Vertikální centrování obsahu */
+  padding-right: 20px; /* Přidání odsazení doprava */
+  top: 0;
 }
-
-/* Základní styly pro seznam */
 ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding-right: 10px;
   display: flex;
-  justify-content: center; /* Středové zarovnání */
   gap: 15px;
-  position: relative;
 }
 
-/* Odkazy uvnitř navigace */
 li {
   position: relative;
 }
@@ -178,28 +183,24 @@ li {
 li a {
   text-decoration: none;
   font-weight: 700;
-  color: #ffffff;
+  color: #040e47;
   font-size: 18px;
-  padding: 6px 15px;
+  margin-top: -50px;
+  padding: 12px 15px; /* Zvýšení vertikálního paddingu pro centrování textu */
   border-radius: 5px;
   transition: background-color 0.3s, transform 0.2s;
-  position: relative;
-  z-index: 1;
+  display: block;
+  line-height: 26px; /* Nastavení stejné výšky jako výška odkazu pro vertikální zarovnání */
 }
 
-/* Hover efekt na odkazy */
-li a:hover {
-  transform: scale(1.1); /* Mírné zvětšení při najetí myší */
-}
 
-/* Styl pro čáru */
 .line-container2 {
   position: absolute;
-  bottom: -10px;
+  bottom: 10px;
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #fff;
+  background-color: #040e47;
   border-radius: 2px;
   transition: width 0.3s ease-in-out;
 }
@@ -208,11 +209,10 @@ li:hover .line-container2 {
   width: 100%;
 }
 
-/* Pro větší zařízení */
 @media (min-width: 768px) {
   li a {
-      font-size: 20px;
-      padding: 15px 20px;
+    font-size: 20px;
+    padding: 15px 20px;
   }
 }
 
@@ -436,4 +436,8 @@ footer {
   position: absolute;
   width: 100%;
   bottom: -500px;
+}
+footer a {
+  position: relative;
+  font-weight: 700;
 }
