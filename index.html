@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="cs">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,17 +69,7 @@
       </div>
     </div>
   </main>
-  <script>
-    document.addEventListener('scroll', function () {
-      const cardContainer = document.querySelector('.card-container');
-      const triggerHeight = 1; // Tento parametr bude malý, takže se karty objeví ihned při pohybu kolečkem.
   
-      if (window.scrollY > triggerHeight) {
-        cardContainer.style.opacity = '1';
-        cardContainer.style.transform = 'translateY(0)';
-      }
-    });
-  </script>
   
 
   <!-- Sekce Kontakt -->
@@ -105,6 +94,17 @@
 
   <!-- Skripty -->
   <script src="index.js"></script>
+  <script>
+    document.addEventListener('scroll', function () {
+      const cardContainer = document.querySelector('.card-container');
+      const triggerHeight = 1; // Tento parametr bude malý, takže se karty objeví ihned při pohybu kolečkem.
+  
+      if (window.scrollY > triggerHeight) {
+        cardContainer.style.opacity = '1';
+        cardContainer.style.transform = 'translateY(0)';
+      }
+    });
+  </script>
 
 
   <footer style="background-color: rgba(4, 14, 71, 0.9); color: white; padding: 20px; font-family: Arial, sans-serif;">
@@ -141,7 +141,5 @@
       <p>&copy; 2025 PKB CZ, s.r.o. Všechna práva vyhrazena.</p>
     </div>
   </footer>
-  
-  
 </body>
 </html>
