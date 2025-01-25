@@ -12,12 +12,6 @@
 <body>
   <!-- Hlavička stránky -->
   <header>
-    <div class="logo">
-      <a href="index.html">
-        <img src="./logo-removebg-preview.png" alt="Logo společnosti">
-      </a>
-    </div>
-
     <!-- Navigační menu -->
     <nav>
       <ul>
@@ -36,24 +30,20 @@
       </ul>
     </nav>
   </header>
-
   <main>
     <div class="text-container">
       <h1 class="static-text">Vítejte na stránce Dřevostavby PKB</h1>
       <p class="animated-text">
-        Specializujeme se na výrobu a stavbu kvalitních dřevostaveb, které splní vaše sny o bydlení.
+        Specializujeme se na stavbu kvalitních dřevostaveb, které splní vaše sny o bydlení.
       </p>
     </div>
 
     <div class="line-container">
       <div class="line"></div>
     </div>
-    <a href="#target-section" class="scroll-button"><button>Více zde</button></a>
-
-    
+    <a href="sluzby.html" class="scroll-button"><button>Více zde</button></a>
       <div class="card-container">
         <article class="card">
-          <div id="target-section" class="target-section"></div>
           <h2 class="card-title">O nás</h2>
           <p class="card-description">
             PKB CZ s.r.o. se specializuje na stavební a developerskou činnost v oblasti dřevostaveb. Nabízíme komplexní služby od inženýrské přípravy přes projektování a výrobu prefabrikovaných panelů až po dodávku rodinných, řadových a bytových domů.
@@ -80,6 +70,18 @@
       </div>
     </div>
   </main>
+  <script>
+    document.addEventListener('scroll', function () {
+      const cardContainer = document.querySelector('.card-container');
+      const triggerHeight = 1; // Tento parametr bude malý, takže se karty objeví ihned při pohybu kolečkem.
+  
+      if (window.scrollY > triggerHeight) {
+        cardContainer.style.opacity = '1';
+        cardContainer.style.transform = 'translateY(0)';
+      }
+    });
+  </script>
+  
 
   <!-- Sekce Kontakt -->
   <section class="contact">
@@ -103,43 +105,43 @@
 
   <!-- Skripty -->
   <script src="index.js"></script>
-  <div class="spacer"></div>
 
-  
+
   <footer style="background-color: rgba(4, 14, 71, 0.9); color: white; padding: 20px; font-family: Arial, sans-serif;">
     <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
       <!-- Logo a popis firmy -->
       <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
-        <h3>PKB Dřevostavby</h3>
+        <h3>PKB CZ, s.r.o</h3>
         <p>Specialisté na moderní a ekologické dřevostavby.</p>
       </div>
-
+  
       <!-- Kontaktní informace -->
       <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
         <h4>Kontakt</h4>
-        <p><strong>Majitel a jednatel:</strong> Pavel Czene</p>
+        <p><strong>Jednatel:</strong> Ing. Pavel Czene</p>
         <p><strong>Telefon:</strong> <a href="tel:+420602566117" style="color: white; text-decoration: none;">+420 602 566 117</a></p>
         <p><strong>Email:</strong> <a href="mailto:info@drevostavbypkb.cz" style="color: white; text-decoration: none;">info@drevostavbypkb.cz</a></p>
         <p><strong>Adresa:</strong><br>Šenovská 463/393<br>717 00 Ostrava-Bartovice</p>
       </div>
-
+  
       <!-- Navigace -->
       <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
-        <h4>
-          <ul style="list-style: none; padding: 0;">
-            <li><a href="index.html" style="color: white; text-decoration: none;">Domů</a></li>
-            <li><a href="obrazky.html" style="color: white; text-decoration: none;">Obrázky</a></li>
-            <li><a href="kontakty.html" style="color: white; text-decoration: none;">Kontakty</a></li>
-          </ul>
-        </h4>
+        <h4 style="margin: 20;">Navigace</h4>
+        <ul style="list-style: none; padding: 0;">
+          <a href="index.html" style="color: white; text-decoration: none;">Domů</a>
+          <a href="obrazky.html" style="color: white; text-decoration: none;">Obrázky</a>
+          <a href="kontakty.html" style="color: white; text-decoration: none;">Kontakty</a>
+          <a href="sluzby.html" style="color: white; text-decoration: none;">Služby</a>
+        </ul>
       </div>
     </div>
-
+  
     <!-- Copyright -->
     <div style="text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.3); padding-top: 10px; margin-top: 20px;">
-      <p>&copy; 2025 PKB Dřevostavby. Všechna práva vyhrazena.</p>
+      <p>&copy; 2025 PKB CZ, s.r.o. Všechna práva vyhrazena.</p>
     </div>
   </footer>
+  
+  
 </body>
-
 </html>
